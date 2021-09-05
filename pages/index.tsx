@@ -1,32 +1,30 @@
 import Head from "next/head";
-import Link from "next/link";
-import Date from "../components/date";
 import Layout, { siteTitle } from "../components/layout";
 import utilStyles from "../styles/utils.module.css";
 import { getSortedPostsData } from "../lib/posts";
+import Link from "next/link";
+import Date from "../components/date";
+import { GetStaticProps } from "next";
 
-export async function getStaticProps() {
-  const allPostsData = getSortedPostsData();
-  return {
-    props: {
-      allPostsData,
-    },
-  };
-}
-
-export default function Home({ allPostsData }) {
+export default function Home({
+  allPostsData,
+}: {
+  allPostsData: {
+    date: string;
+    title: string;
+    id: string;
+  }[];
+}) {
   return (
-    <Layout Home>
+    <Layout home>
       <Head>
         <title>{siteTitle}</title>
       </Head>
       <section className={utilStyles.headingMd}>
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic repellendus vero officiis exercitationem iusto sequi quibusdam esse, placeat sit numquam ab necessitatibus quos quia obcaecati
-          temporibus asperiores unde repellat soluta odio quisquam saepe nam quam. At non pariatur iusto minima.
-        </p>
-        <p>
-          This is website built by Next.js <a href="https://nextjs.org/learn">Learn next.js now</a>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis, ex alias et minus consequatur molestias, perspiciatis fugit accusamus exercitationem necessitatibus, fugiat reprehenderit
+          praesentium. Ab iure ipsa neque dignissimos et. Esse, porro corporis? Corporis corrupti soluta ipsam a atque. Reiciendis a exercitationem doloribus enim, tempore quis? Illo tempora similique
+          aliquid quia. <a href="https://nextjs.org/learn">Learn next.js now</a>.
         </p>
       </section>
       <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
@@ -48,3 +46,12 @@ export default function Home({ allPostsData }) {
     </Layout>
   );
 }
+
+export const getStaticProps: GetStaticProps = async () => {
+  const allPostsData = getSortedPostsData();
+  return {
+    props: {
+      allPostsData,
+    },
+  };
+};
