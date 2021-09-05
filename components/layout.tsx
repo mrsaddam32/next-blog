@@ -45,7 +45,7 @@ export default function Layout({ children, home }: { children: React.ReactNode; 
       </header>
       <main>{children}</main>
       {!home && (
-        <div className={styles.backToHome}>
+        <div className={styles.backBtn}>
           <Link href="/">
             <a>← Back to home</a>
           </Link>
