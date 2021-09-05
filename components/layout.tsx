@@ -5,7 +5,7 @@ import utilStyles from "../styles/utils.module.css";
 import Link from "next/link";
 
 const name = "Muhammad Saddam Pradana";
-export const siteTitle = "Next Blog Websites";
+export const siteTitle = "Neoline's Blog";
 
 export default function Layout({ children, home }: { children: React.ReactNode; home?: boolean }) {
   return (
